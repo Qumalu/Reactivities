@@ -6,10 +6,13 @@ import HomePage from "../../features/home/HomePage";
 import ActivitiesRoutes from "../routes/activitiesRoutes";
 import ActivitiesDetails from "../../features/activities/details/ActivitiesDetails";
 import ActivityForm from "../../features/activities/form/ActivityForm";
+import NotFound from "./NotFound";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
     <Fragment>
+      <ToastContainer position="bottom-right" />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route element={<ActivitiesRoutes />}>
@@ -17,6 +20,7 @@ const App = () => {
           <Route path="/activities/:id" element={<ActivitiesDetails />} />
           <Route path="/createActivity" element={<ActivityForm />} />
           <Route path="/manage/:id" element={<ActivityForm />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Fragment>

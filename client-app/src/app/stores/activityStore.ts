@@ -51,7 +51,9 @@ export class ActivityStore {
     makeObservable(this);
   }
 
-  // Action for getting Activity data from API
+  /**
+   * Action for getting Activities from API
+   */
   @action loadActivities = async () => {
     // Turn on loading
     this.loadingInitial = true;
@@ -69,7 +71,7 @@ export class ActivityStore {
         this.loadingInitial = false;
       });
       // Only use to see the output of the function
-      console.log(this.groupActivitiesByDate(activities));
+      //console.log(this.groupActivitiesByDate(activities));
     } catch (error) {
       // Set loading off
       runInAction(() => {
