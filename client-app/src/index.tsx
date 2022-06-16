@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "react-toastify/dist/ReactToastify.min.css";
 import "./app/layout/styles.css";
+import "react-widgets/styles.css";
 import App from "./app/layout/App";
 import reportWebVitals from "./reportWebVitals";
 import ScrollToTop from "./app/layout/ScrollToTop";
@@ -9,7 +10,6 @@ import { createBrowserHistory } from "history";
 import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
 
 const history = createBrowserHistory();
-
 export default history;
 
 const root = ReactDOM.createRoot(
