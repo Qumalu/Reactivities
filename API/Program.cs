@@ -5,6 +5,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Persistence;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Domain;
 
 namespace API
 {
@@ -25,9 +27,12 @@ namespace API
                 {
                     // Get data context from services
                     var context = services.GetRequiredService<DataContext>();
+                    // Get user management service
+                    var userManager = services.GetRequiredService<UserManager<AppUser>>();
                     // Run pending migration and create db if db doesn't exists
                     context.Database.Migrate();
-                    Seed.SeedData(context);
+                    // Seeding the data
+                    Seed.SeedData(context, userManager).Wait();
                 }    
                 catch(Exception ex)
                 {
